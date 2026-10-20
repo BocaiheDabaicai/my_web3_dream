@@ -1,0 +1,56 @@
+# Environment files — never commit secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.coverage
+htmlcov/
+coverage.xml
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+coverage/
+*.tsbuildinfo
+npm-debug.log*
+pnpm-debug.log*
+
+# Databases and local data
+*.db
+*.sqlite
+*.sqlite3
+postgres-data/
+.data/
+
+# Solidity / Hardhat / Foundry build outputs
+artifacts/
+cache/
+typechain-types/
+.hardhat/
+broadcast/
+forge-cache/
+
+# Logs
+logs/
+*.log
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
