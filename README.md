@@ -1,101 +1,104 @@
-# Onchain Analyst · 链上智能分析助手
+# my_web3_dream
 
-> A read-only AI agent that answers questions about Ethereum addresses, transactions, tokens, and contracts — with every claim traceable to its source and block height.
+一个面向 Web3 的长期学习仓库。当前阶段先打牢 Web 前端基础，再进入链上数据与 Web3 应用开发。
 
-一个只读的链上智能分析助手：用自然语言查询地址、交易、代币与合约数据。项目同时是一条从企业前端转向 AI + Web3 应用工程师的系统学习路径，按检查点推进，边学边构建。
+当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-## 当前状态
+当前课程：[Lesson 03 · 事件处理与 useState](web-foundations/react-lab/src/lessons/lesson-03/README.md)
 
-- **当前检查点：C0 · 环境可行性 + 行走骨架**（进行中）
-- 已实现：JSON-RPC 客户端（含 failover）、`RpcChainDataProvider`、2 个 MockTransport 测试
-- 待实现：FastAPI 路由与错误映射、provider/接口测试、CI
-- 当前任务书：[docs/tasks/c0-walking-skeleton.md](docs/tasks/c0-walking-skeleton.md)
-- 进度记录：[docs/progress.md](docs/progress.md)
+当前进度（2026-10-20）：Lesson 03 的讲义与 Demo 已完成，练习待完成。下次从 `lesson-03/Exercise.jsx` 的“区块脉冲”练习继续。
 
-完整路线见 [docs/roadmap.md](docs/roadmap.md)。
+## 学习方式
 
-## 为什么是只读
+每一课固定四个环节：
 
-第一版不连接真实资金、不自动交易、不把私钥交给模型。工具层只有只读白名单，所有工具调用写审计日志。详见 [docs/security.md](docs/security.md)。
+1. **示例**：我写一份可运行的代码，并讲清原理。
+2. **理解**：对照浏览器效果与源码，弄懂概念和边界。
+3. **练习**：你根据任务卡、接口契约与分级提示独立完成。
+4. **复盘**：我审查代码、讲透问题，再进入下一课。
 
-## 目标架构
+原则：核心代码由你自己写；卡住时先要提示，不直接抄答案。
 
+## 课程路线
+
+### 阶段一 · React（`web-foundations/react-lab`）
+
+目标：掌握组件化思维、JSX、状态、副作用与组件复用。
+
+- [x] 01 组件、JSX、Props、children 与组件组合
+- [x] 02 条件渲染、列表渲染、key 与纯函数组件
+- [ ] 03 事件处理与 useState（快照、批处理、更新函数）
+- [ ] 04 表单、受控组件与状态提升
+- [ ] 05 useReducer 与 Context
+- [ ] 06 useEffect（依赖数组、清理函数、同步外部系统）
+- [ ] 07 useRef 与 DOM 操作
+- [ ] 08 自定义 Hook 与组件复用
+- [ ] 09 综合练习：静态链上资产面板
+
+### 阶段二 · Next.js（`web-foundations/next-lab`，后续创建）
+
+目标：理解 App Router、服务端组件与全栈开发模式。
+
+- [ ] 10 App Router：目录即路由、page 与 layout
+- [ ] 11 Server Components 与 Client Components
+- [ ] 12 动态路由、导航、loading 与 error
+- [ ] 13 服务端数据获取与缓存基础
+- [ ] 14 Route Handlers：编写 API
+- [ ] 15 综合练习：链上资产面板 v2（mock 数据）
+
+### 阶段三 · TypeScript
+
+目标：为 React 与 Next.js 代码建立可靠的类型边界。
+
+- [ ] 16 类型系统基础与类型收窄
+- [ ] 17 interface、type、联合类型与泛型
+- [ ] 18 React + TS：props、state、事件与 ref
+- [ ] 19 Next.js + TS：路由参数、API 数据与严格模式
+- [ ] 20 把 next-lab 迁移为 TypeScript
+
+### 阶段四 · API 调用
+
+目标：安全、稳定地消费真实数据。
+
+- [ ] 21 HTTP、REST、JSON 与状态码
+- [ ] 22 fetch、async/await、错误处理与 AbortController
+- [ ] 23 客户端数据获取模式与自定义 Hook
+- [ ] 24 Next.js 服务端请求、Route Handler 与密钥安全
+- [ ] 25 综合练习：公开 API + 链上 JSON-RPC 数据面板
+
+## 目录结构
+
+```text
+my_web3_dream/
+├── README.md
+└── web-foundations/
+    ├── react-lab/       # 阶段一：React
+    │   └── src/
+    │       └── lessons/ # 每课的 demo、练习与讲义
+    └── next-lab/        # 阶段二至四（后续创建）
 ```
-apps/web (Next.js + TypeScript)
-    │ HTTP / SSE
-apps/api (FastAPI)
-    ├── Agent 循环（DeepSeek tool calling）
-    ├── PostgreSQL：会话 / 工具调用审计 / 结果缓存 / 评测记录
-    └── MCP client
-            │
-    MCP server（同仓库独立进程，FastMCP）
-            │
-    链上工具层（Python：httpx + eth-abi + EIP-55）
-            ├── RPC providers（PublicNode / 1RPC / dRPC，故障切换）
-            └── Routescan（交易历史、代币转账）
-```
 
-设计取舍见 [docs/architecture.md](docs/architecture.md) 与 [ADR-0001](docs/adr/0001-stack-and-environment.md)。
+## 运行 React Lab
 
-## 仓库结构
-
-```
-apps/api/          FastAPI 后端（当前）
-apps/web/          Next.js 前端（C2 起）
-labs/viem/         viem 链上练习（C1）
-contracts/         Hardhat 合约（C4）
-docs/              路线图、架构、安全、任务书、笔记、devlog
-scripts/           跨平台开发脚本
-infra/             Docker / 部署（C0 决策，C9 落地）
-```
-
-## 快速开始（后端）
-
-前置：Python 3.12+（当前在 3.13 验证）、Git。前端需要 Node 20+（C2 起）。
+依赖已安装。首次拉取仓库后执行：
 
 ```bash
-cp .env.example .env
-
-cd apps/api
-python -m venv .venv
-
-# Windows PowerShell:
-#   .venv\Scripts\Activate.ps1
-# Windows Git Bash:
-#   source .venv/Scripts/activate
-# macOS / Linux:
-#   source .venv/bin/activate
-
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt -r requirements-dev.txt
-uvicorn app.main:app --reload --port 8000
+cd web-foundations/react-lab
+npm install
+npm run dev
 ```
 
-大陆网络访问 PyPI 较慢时使用上面的清华镜像；其他地区可去掉 `-i ...`。
+浏览器打开终端显示的地址（默认 `http://localhost:5173`）。
 
-验证：
+环境要求：Node.js 20.19+ 或 22.12+、npm 10+（当前验证环境：Node 24 / npm 11）。
 
-```bash
-curl http://127.0.0.1:8000/health
-curl http://127.0.0.1:8000/api/chain/block/latest
-```
+## 学习记录
 
-接口文档：<http://127.0.0.1:8000/docs>
+- 2026-10-20：完成 Lesson 01（组件、JSX、Props）和 Lesson 02（条件渲染、列表与 key）；Lesson 03（事件与 useState）已讲解并完成 Demo，练习待完成。
 
-C0 完成前，`/api/chain/block/latest` 尚未实现并返回 404，这是预期状态。实现要求见 [C0 任务书](docs/tasks/c0-walking-skeleton.md)。
+## 官方文档
 
-完整的环境配置、Docker 决策与 macOS 迁移清单见 [docs/setup.md](docs/setup.md)。
-
-## 开发约定
-
-- 每个检查点统一交付：可运行代码 + 自动化测试 + 笔记 + 英文 devlog 摘要 + 口头复述 + 追问与破坏任务。
-- 单元测试使用录制 fixture，不依赖外网。
-- 所有密钥只放在本地 `.env`，不进入 Git。
-- 代码与文档保持 Windows / macOS 双平台可运行（LF 换行、Python 脚本、Docker）。
-
-## 路线
-
-检查点 C0 → C10：环境、链上基础、纵向切片、PostgreSQL、合约、Agent、MCP、界面、评测、部署、技术公信力。见 [docs/roadmap.md](docs/roadmap.md)。
-
-## 资源
-
-官方文档与学习资料汇总见 [docs/resources.md](docs/resources.md)。
+- [React Learn](https://react.dev/learn)
+- [Next.js App Router](https://nextjs.org/docs/app)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [MDN：使用 Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
