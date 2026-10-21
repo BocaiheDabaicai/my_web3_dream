@@ -1,5 +1,5 @@
-import Lesson03Demo from './lessons/lesson-03/Demo'
-import Lesson03Exercise from './lessons/lesson-03/Exercise'
+import Lesson04Demo from './lessons/lesson-04/Demo'
+import Lesson04Exercise from './lessons/lesson-04/Exercise'
 
 export default function App() {
   return (
@@ -13,11 +13,11 @@ export default function App() {
 
         <div className="site-header__lesson">
           <span className="lesson-index" aria-hidden="true">
-            03
+            04
           </span>
           <div>
-            <h1>让页面真正动起来</h1>
-            <p>事件处理 · useState · 状态快照 · 函数式更新</p>
+            <h1>让表单和状态联动</h1>
+            <p>表单提交 · 受控组件 · 状态提升</p>
           </div>
         </div>
       </header>
@@ -31,8 +31,8 @@ export default function App() {
             </div>
             <span className="column-badge column-badge--demo">READ</span>
           </div>
-          <Lesson03Demo />
-          <p className="column-note">源码：src/lessons/lesson-03/Demo.jsx</p>
+          <Lesson04Demo />
+          <p className="column-note">源码：src/lessons/lesson-04/Demo.jsx</p>
         </section>
 
         <section className="lab__column lab__column--exercise">
@@ -43,14 +43,14 @@ export default function App() {
             </div>
             <span className="column-badge column-badge--exercise">WRITE</span>
           </div>
-          <Lesson03Exercise />
-          <p className="column-note">任务卡：src/lessons/lesson-03/README.md</p>
+          <Lesson04Exercise />
+          <p className="column-note">任务卡：src/lessons/lesson-04/README.md</p>
         </section>
       </main>
 
       <footer className="site-footer">
         <span>my_web3_dream · Web Foundations</span>
-        <span>下一课：表单与状态提升</span>
+        <span>下一课：useReducer 与 Context</span>
       </footer>
     </div>
   )

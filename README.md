@@ -4,9 +4,9 @@
 
 当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-当前课程：[Lesson 03 · 事件处理与 useState](web-foundations/react-lab/src/lessons/lesson-03/README.md)
+下一课：**Lesson 05 · useReducer 与 Context**（待准备）
 
-当前进度（2026-10-20）：Lesson 03 的讲义与 Demo 已完成，练习待完成。下次从 `lesson-03/Exercise.jsx` 的“区块脉冲”练习继续。
+当前进度（2026-10-21）：Lesson 04 已完成，练习“交易预览台”通过验收。下次从 Lesson 05 继续。
 
 ## 学习方式
 
@@ -27,8 +27,8 @@
 
 - [x] 01 组件、JSX、Props、children 与组件组合
 - [x] 02 条件渲染、列表渲染、key 与纯函数组件
-- [ ] 03 事件处理与 useState（快照、批处理、更新函数）
-- [ ] 04 表单、受控组件与状态提升
+- [x] 03 事件处理与 useState（快照、批处理、更新函数）
+- [x] 04 表单、受控组件与状态提升
 - [ ] 05 useReducer 与 Context
 - [ ] 06 useEffect（依赖数组、清理函数、同步外部系统）
 - [ ] 07 useRef 与 DOM 操作
@@ -94,7 +94,10 @@ npm run dev
 
 ## 学习记录
 
-- 2026-10-20：完成 Lesson 01（组件、JSX、Props）和 Lesson 02（条件渲染、列表与 key）；Lesson 03（事件与 useState）已讲解并完成 Demo，练习待完成。
+- 2026-10-20：完成 Lesson 01（组件、JSX、Props）和 Lesson 02（条件渲染、列表与 key）；Lesson 03（事件与 useState）完成讲义与 Demo。
+- 2026-10-21：完成 Lesson 03 练习“区块脉冲”，掌握函数式更新、快照陷阱与不可变更新。
+- 2026-10-21：开始 Lesson 04，完成讲义、受控表单 Demo、状态提升 Demo 与练习界面骨架。
+- 2026-10-21：完成 Lesson 04 练习“交易预览台”，掌握受控输入、表单提交与状态提升。
 
 ## 官方文档
 

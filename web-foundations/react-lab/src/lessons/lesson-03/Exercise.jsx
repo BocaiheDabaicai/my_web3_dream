@@ -1,21 +1,79 @@
-// 目标：用 useState 管理 chain = { block, logs }，实现一个区块脉冲面板。
-// 状态结构、行为契约与验收标准见 lesson-03/README.md。
+import {useState} from "react";
+
+const initialChain = {
+    block: 18_400_000,
+    logs: [],
+}
+
 
 export default function Lesson03Exercise() {
-  return (
-    <div className="exercise-placeholder">
-      <span className="exercise-placeholder__index">TODO · LESSON 03</span>
-      <h3>轮到你了</h3>
-      <p>
-        用 <code>useState</code> 管理区块高度和出块日志，做一个可交互的区块脉冲面板。
-      </p>
-      <ul>
-        <li>一个 state 对象同时保存 block 和 logs。</li>
-        <li>“三连出块”一次点击必须加 3 个块并写入 3 条日志。</li>
-        <li>清空日志不能改变当前区块高度。</li>
-        <li>用不可变更新，不要直接修改 state 对象或数组。</li>
-      </ul>
-      <p className="muted">完整契约、初始状态与验收标准见 lesson-03/README.md</p>
-    </div>
-  )
+    const [chain, setChain] = useState(initialChain)
+
+    const advance = function (data) {
+        setChain((current) => {
+            const nextBlock = current.block + data
+            return {
+                ...current,
+                block: nextBlock,
+                logs: [{id: nextBlock, text: '区块已确认'}, ...current.logs],
+            }
+        })
+    }
+    const advanceThree = function () {
+        advance(1)
+        advance(1)
+        advance(1)
+    }
+    const clearLogs = function () {
+        setChain((current) => {
+            return {...current, logs: []}
+        })
+    }
+    const reset = function () {
+        setChain(initialChain)
+    }
+
+    return (
+        <section className="control-card">
+            <header className="control-card__head">
+                <div>
+                    <p className="board-kicker">BLOCK PULSE</p>
+                    <h2>区块脉冲</h2>
+                </div>
+                <span className="board-count">{chain.logs.length} 条日志</span>
+            </header>
+
+            <p className="block-height">{chain.block}</p>
+
+            <div className="button-row">
+                <button type="button" className="btn btn--primary" onClick={() => advance(1)}>
+                    出块 +1
+                </button>
+                <button type="button" className="btn" onClick={advanceThree}>
+                    三连出块
+                </button>
+                <button type="button" className="btn" onClick={clearLogs}>
+                    清空日志
+                </button>
+                <button type="button" className="btn btn--ghost" onClick={reset}>
+                    重置
+                </button>
+            </div>
+
+            <h3 className="log-title">出块记录</h3>
+
+            {chain.logs.length === 0 ? (
+                <p className="empty-inline">还没有出块记录。</p>
+            ) : (
+                <ul className="log-list">
+                    {chain.logs.map((log) => (
+                        <li key={log.id} className="log-item">
+                            <span className="log-item__id">#{log.id}</span>
+                            <span>{log.text}</span>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </section>
+    )
 }

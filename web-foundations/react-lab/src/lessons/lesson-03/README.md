@@ -334,6 +334,8 @@ const [chain, setChain] = useState(initialChain)
 
 ### 页面结构
 
+> `Exercise.jsx` 里的静态结构与 classname 已提前准备好。你只需要：替换占位数据、添加 state、实现四个处理函数、接上按钮的 `onClick`。
+
 ```text
 section.control-card
 ├─ header.control-card__head
