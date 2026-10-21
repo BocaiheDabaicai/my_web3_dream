@@ -4,9 +4,9 @@
 
 当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-下一课：**Lesson 05 · useReducer 与 Context**（待准备）
+当前课程：[Lesson 05 · useReducer 与 Context](web-foundations/react-lab/src/lessons/lesson-05/README.md)
 
-当前进度（2026-10-21）：Lesson 04 已完成，练习“交易预览台”通过验收。下次从 Lesson 05 继续。
+当前进度（2026-10-21）：Lesson 05 的讲义、Demo 与练习界面骨架已完成，练习“交易池”待完成。下次从 `lesson-05/Exercise.jsx` 的 `txReducer` 开始：实现 `added / confirmed / removed / reset`，再接上 `TxToolbar` 和 `TxRow` 里的 `dispatch`。
 
 ## 学习方式
 
@@ -29,7 +29,7 @@
 - [x] 02 条件渲染、列表渲染、key 与纯函数组件
 - [x] 03 事件处理与 useState（快照、批处理、更新函数）
 - [x] 04 表单、受控组件与状态提升
-- [ ] 05 useReducer 与 Context
+- [ ] 05 useReducer 与 Context（进行中）
 - [ ] 06 useEffect（依赖数组、清理函数、同步外部系统）
 - [ ] 07 useRef 与 DOM 操作
 - [ ] 08 自定义 Hook 与组件复用
@@ -98,6 +98,7 @@ npm run dev
 - 2026-10-21：完成 Lesson 03 练习“区块脉冲”，掌握函数式更新、快照陷阱与不可变更新。
 - 2026-10-21：开始 Lesson 04，完成讲义、受控表单 Demo、状态提升 Demo 与练习界面骨架。
 - 2026-10-21：完成 Lesson 04 练习“交易预览台”，掌握受控输入、表单提交与状态提升。
+- 2026-10-21：开始 Lesson 05，完成 useReducer 状态机 Demo、Context 钱包 Demo 与“交易池”练习骨架；练习停在起点，下次实现 `txReducer` 四个 action 并接上 dispatch。
 
 ## 官方文档
 

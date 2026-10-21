@@ -457,7 +457,7 @@ div.stack
 └─ TxSummary
 ```
 
-> 界面结构、Context 对象、`useTx()` 和只读展示已经准备好。你只需要：实现 reducer、用 `useReducer` 替换占位 state/dispatch、在工具栏和交易行里接上 `dispatch`。
+> 界面结构、Context 对象、`useTx()`、`useReducer` 和只读展示已经准备好。你只需要：实现 reducer，在工具栏和交易行里接上 `dispatch`。
 
 ### 验收标准
 
@@ -488,10 +488,9 @@ div.stack
 <summary>提示 2 · 结构</summary>
 
 1. 先写 `txReducer` 的四个 case 和 default。
-2. 顶部引入 `useReducer`，把父组件里的占位 `state` / `dispatch` 换成 `useReducer(...)`。
-3. `TxToolbar` 里从 `useTx()` 取出 `dispatch`，接上添加和重置按钮。
-4. `TxRow` 里调用 `useTx()` 取出 `dispatch`，接上确认和删除按钮。
-5. 依次验证添加、确认、删除、重置和统计数字。
+2. `TxToolbar` 里从 `useTx()` 取出 `dispatch`，接上添加和重置按钮。
+3. `TxRow` 里调用 `useTx()` 取出 `dispatch`，接上确认和删除按钮。
+4. 依次验证添加、确认、删除、重置和统计数字。
 
 </details>
 
