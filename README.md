@@ -4,9 +4,9 @@
 
 当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-当前课程：[Lesson 05 · useReducer 与 Context](web-foundations/react-lab/src/lessons/lesson-05/README.md)
+当前课程：[Lesson 07 · useRef 与 DOM 操作](web-foundations/react-lab/src/lessons/lesson-07/README.md)（已完成）
 
-当前进度（2026-10-21）：Lesson 05 的讲义、Demo 与练习界面骨架已完成，练习“交易池”待完成。下次从 `lesson-05/Exercise.jsx` 的 `txReducer` 开始：实现 `added / confirmed / removed / reset`，再接上 `TxToolbar` 和 `TxRow` 里的 `dispatch`。
+当前进度（2026-10-28）：Lesson 05、06、07 均已完成并通过验收（交易池、链上监听台、链上终端）。下次开始 Lesson 08 · 自定义 Hook 与组件复用，材料尚未创建。
 
 ## 学习方式
 
@@ -29,9 +29,9 @@
 - [x] 02 条件渲染、列表渲染、key 与纯函数组件
 - [x] 03 事件处理与 useState（快照、批处理、更新函数）
 - [x] 04 表单、受控组件与状态提升
-- [ ] 05 useReducer 与 Context（进行中）
-- [ ] 06 useEffect（依赖数组、清理函数、同步外部系统）
-- [ ] 07 useRef 与 DOM 操作
+- [x] 05 useReducer 与 Context
+- [x] 06 useEffect（依赖数组、清理函数、同步外部系统）
+- [x] 07 useRef 与 DOM 操作
 - [ ] 08 自定义 Hook 与组件复用
 - [ ] 09 综合练习：静态链上资产面板
 
@@ -99,6 +99,9 @@ npm run dev
 - 2026-10-21：开始 Lesson 04，完成讲义、受控表单 Demo、状态提升 Demo 与练习界面骨架。
 - 2026-10-21：完成 Lesson 04 练习“交易预览台”，掌握受控输入、表单提交与状态提升。
 - 2026-10-21：开始 Lesson 05，完成 useReducer 状态机 Demo、Context 钱包 Demo 与“交易池”练习骨架；练习停在起点，下次实现 `txReducer` 四个 action 并接上 dispatch。
+- 2026-10-28：完成 Lesson 05 练习“交易池”（reducer 四个 action、dispatch 接线、验收全过）；开始 Lesson 06，完成 useEffect 讲义、Demo 与“链上监听台”练习骨架。
+- 2026-10-28：完成 Lesson 06 练习“链上监听台”（定时器 cleanup、网络监听、标题同步，无头浏览器 24 项验收全过）；开始 Lesson 07，完成 useRef 讲义、Demo 与“链上终端”练习骨架。
+- 2026-10-28：完成 Lesson 07 练习“链上终端”（useRef 聚焦/全选、日志哨兵自动滚动，验收全过）。下次开始 Lesson 08 · 自定义 Hook 与组件复用。
 
 ## 官方文档
 

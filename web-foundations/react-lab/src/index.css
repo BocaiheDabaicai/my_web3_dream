@@ -998,6 +998,18 @@ code {
   color: var(--lime);
 }
 
+.log-list--scroll {
+  max-height: 220px;
+  padding-right: 4px;
+  overflow-y: auto;
+}
+
+.log-end {
+  height: 1px;
+  padding: 0;
+  border: 0;
+}
+
 @media (max-width: 560px) {
   .control-card {
     padding: 18px;
@@ -1027,6 +1039,10 @@ code {
 .field {
   display: grid;
   gap: 6px;
+}
+
+.field--spaced {
+  margin-top: 14px;
 }
 
 .field__label {
