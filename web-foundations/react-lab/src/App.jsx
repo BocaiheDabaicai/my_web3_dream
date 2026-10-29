@@ -1,5 +1,5 @@
-import Lesson07Demo from './lessons/lesson-07/Demo'
-import Lesson07Exercise from './lessons/lesson-07/Exercise'
+import Lesson09Demo from './lessons/lesson-09/Demo'
+import Lesson09Exercise from './lessons/lesson-09/Exercise'
 
 export default function App() {
   return (
@@ -13,11 +13,11 @@ export default function App() {
 
         <div className="site-header__lesson">
           <span className="lesson-index" aria-hidden="true">
-            07
+            09
           </span>
           <div>
-            <h1>直接和 DOM 说话</h1>
-            <p>useRef · DOM refs · 不触发渲染的容器</p>
+            <h1>把八课拼成一件作品</h1>
+            <p>综合练习 · 链上资产面板 · React 阶段收官</p>
           </div>
         </div>
       </header>
@@ -31,8 +31,8 @@ export default function App() {
             </div>
             <span className="column-badge column-badge--demo">READ</span>
           </div>
-          <Lesson07Demo />
-          <p className="column-note">源码：src/lessons/lesson-07/Demo.jsx</p>
+          <Lesson09Demo />
+          <p className="column-note">源码：src/lessons/lesson-09/Demo.jsx</p>
         </section>
 
         <section className="lab__column lab__column--exercise">
@@ -43,14 +43,16 @@ export default function App() {
             </div>
             <span className="column-badge column-badge--exercise">WRITE</span>
           </div>
-          <Lesson07Exercise />
-          <p className="column-note">任务卡：src/lessons/lesson-07/README.md</p>
+          <Lesson09Exercise />
+          <p className="column-note">
+            任务卡：src/lessons/lesson-09/README.md
+          </p>
         </section>
       </main>
 
       <footer className="site-footer">
         <span>my_web3_dream · Web Foundations</span>
-        <span>下一课：自定义 Hook 与组件复用</span>
+        <span>React 阶段收官 · 下一阶段：Next.js</span>
       </footer>
     </div>
   )

@@ -4,9 +4,9 @@
 
 当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-当前课程：[Lesson 07 · useRef 与 DOM 操作](web-foundations/react-lab/src/lessons/lesson-07/README.md)（已完成）
+当前课程：[Lesson 09 · 综合练习：静态链上资产面板](web-foundations/react-lab/src/lessons/lesson-09/README.md)（进行中）
 
-当前进度（2026-10-28）：Lesson 05、06、07 均已完成并通过验收（交易池、链上监听台、链上终端）。下次开始 Lesson 08 · 自定义 Hook 与组件复用，材料尚未创建。
+当前进度（2026-10-29）：Lesson 01–08 已完成并通过验收（交易池、链上监听台、链上终端、链上数据看板）。Lesson 09 综合练习进行中：M1 状态层已完成（四个 reducer action、selectSummary；网络切换、关注、总览验收通过），M2 交互层待完成（selectVisibleAssets、"/" 聚焦、添加资产表单）。
 
 ## 学习方式
 
@@ -32,7 +32,7 @@
 - [x] 05 useReducer 与 Context
 - [x] 06 useEffect（依赖数组、清理函数、同步外部系统）
 - [x] 07 useRef 与 DOM 操作
-- [ ] 08 自定义 Hook 与组件复用
+- [x] 08 自定义 Hook 与组件复用
 - [ ] 09 综合练习：静态链上资产面板
 
 ### 阶段二 · Next.js（`web-foundations/next-lab`，后续创建）
@@ -102,6 +102,10 @@ npm run dev
 - 2026-10-28：完成 Lesson 05 练习“交易池”（reducer 四个 action、dispatch 接线、验收全过）；开始 Lesson 06，完成 useEffect 讲义、Demo 与“链上监听台”练习骨架。
 - 2026-10-28：完成 Lesson 06 练习“链上监听台”（定时器 cleanup、网络监听、标题同步，无头浏览器 24 项验收全过）；开始 Lesson 07，完成 useRef 讲义、Demo 与“链上终端”练习骨架。
 - 2026-10-28：完成 Lesson 07 练习“链上终端”（useRef 聚焦/全选、日志哨兵自动滚动，验收全过）。下次开始 Lesson 08 · 自定义 Hook 与组件复用。
+- 2026-10-29：开始 Lesson 08，完成自定义 Hook 讲义、Demo 与“链上数据看板”练习骨架（三个 Hook：useOnlineStatus、useBlockHeight、useDebouncedValue），等待练习。
+- 2026-10-29：完成 Lesson 08 练习“链上数据看板”（三个自定义 Hook、多实例状态隔离、间隔切换清理、卸载重建、防抖重置，验收全过）。
+- 2026-10-29：开始 Lesson 09 · 综合练习：静态链上资产面板，完成参考 Demo、UI 骨架与 M1–M3 三阶段任务卡（状态层、交互层、行情同步），等待练习。
+- 2026-10-29：Lesson 09 M1 完成（reducer 四个 action、selectSummary；复盘不可变更新、map 回调返回值、switch case 作用域与 selector 纯函数；Ethereum 总览、网络切换、关注状态验收通过）。下次继续 M2：selectVisibleAssets、"/" 聚焦、添加资产表单。
 
 ## 官方文档
 
