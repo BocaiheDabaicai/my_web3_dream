@@ -4,9 +4,9 @@
 
 当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-当前课程：[Lesson 09 · 综合练习：静态链上资产面板](web-foundations/react-lab/src/lessons/lesson-09/README.md)（进行中）
+当前课程：[Lesson 11 · Server Components 与 Client Components](web-foundations/next-lab/lessons/lesson-11/README.md)（已完成）
 
-当前进度（2026-10-29）：Lesson 01–08 已完成并通过验收（交易池、链上监听台、链上终端、链上数据看板）。Lesson 09 综合练习进行中：M1 状态层已完成（四个 reducer action、selectSummary；网络切换、关注、总览验收通过），M2 交互层待完成（selectVisibleAssets、"/" 聚焦、添加资产表单）。
+当前进度（2026-11-02）：React 阶段 Lesson 01–09 全部完成并通过验收。Next.js 阶段：Lesson 10“目录即路由”与 Lesson 11“Server / Client Components”均已完成，浏览器验收与 `next build` 通过。下一课 Lesson 12 · 动态路由、导航、loading 与 error。
 
 ## 学习方式
 
@@ -35,12 +35,12 @@
 - [x] 08 自定义 Hook 与组件复用
 - [ ] 09 综合练习：静态链上资产面板
 
-### 阶段二 · Next.js（`web-foundations/next-lab`，后续创建）
+### 阶段二 · Next.js（`web-foundations/next-lab`）
 
 目标：理解 App Router、服务端组件与全栈开发模式。
 
-- [ ] 10 App Router：目录即路由、page 与 layout
-- [ ] 11 Server Components 与 Client Components
+- [x] 10 App Router：目录即路由、page 与 layout
+- [x] 11 Server Components 与 Client Components
 - [ ] 12 动态路由、导航、loading 与 error
 - [ ] 13 服务端数据获取与缓存基础
 - [ ] 14 Route Handlers：编写 API
@@ -75,7 +75,9 @@ my_web3_dream/
     ├── react-lab/       # 阶段一：React
     │   └── src/
     │       └── lessons/ # 每课的 demo、练习与讲义
-    └── next-lab/        # 阶段二至四（后续创建）
+    └── next-lab/        # 阶段二：Next.js
+        ├── src/app/     # App Router：目录即路由
+        └── lessons/     # 每课的讲义与任务卡
 ```
 
 ## 运行 React Lab
@@ -92,6 +94,16 @@ npm run dev
 
 环境要求：Node.js 20.19+ 或 22.12+、npm 10+（当前验证环境：Node 24 / npm 11）。
 
+## 运行 Next Lab
+
+```bash
+cd web-foundations/next-lab
+npm install
+npm run dev
+```
+
+浏览器打开 `http://localhost:3000`。示例在 `/demo`，练习在 `/exercise`。
+
 ## 学习记录
 
 - 2026-10-20：完成 Lesson 01（组件、JSX、Props）和 Lesson 02（条件渲染、列表与 key）；Lesson 03（事件与 useState）完成讲义与 Demo。
@@ -106,6 +118,10 @@ npm run dev
 - 2026-10-29：完成 Lesson 08 练习“链上数据看板”（三个自定义 Hook、多实例状态隔离、间隔切换清理、卸载重建、防抖重置，验收全过）。
 - 2026-10-29：开始 Lesson 09 · 综合练习：静态链上资产面板，完成参考 Demo、UI 骨架与 M1–M3 三阶段任务卡（状态层、交互层、行情同步），等待练习。
 - 2026-10-29：Lesson 09 M1 完成（reducer 四个 action、selectSummary；复盘不可变更新、map 回调返回值、switch case 作用域与 selector 纯函数；Ethereum 总览、网络切换、关注状态验收通过）。下次继续 M2：selectVisibleAssets、"/" 聚焦、添加资产表单。
+- 2026-11-02：完成 Lesson 09 M2/M3（筛选排序、"/" 聚焦、添加资产表单、usePriceTicker 定时行情），无头浏览器验收全过，lint 与 build 通过；React 阶段（01–09）收官。
+- 2026-11-02：创建 `next-lab`（Next.js 16 App Router），开始 Lesson 10“目录即路由”，完成 Demo 与任务卡，等待练习。后续练习按“一个练习只讲一个概念、只保留轻量 Web3 背景”执行。
+- 2026-11-02：Lesson 10 完成（/exercise 三个静态页面、嵌套 layout、Link 跳转、404 验收通过，`next build` 通过）。开始 Lesson 11“Server Components 与 Client Components”，完成 Demo（服务端 Node 版本 + 客户端点赞计数器）与任务卡，等待练习。
+- 2026-11-02：Lesson 11 完成（/exercise/server-client：Server page + `'use client'` 点赞按钮，导航与客户端跳转验收通过，`next build` 通过）。下一课 Lesson 12 · 动态路由、导航、loading 与 error。
 
 ## 官方文档
 

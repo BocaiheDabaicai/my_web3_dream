@@ -8,7 +8,7 @@
 // M3 - hooks/usePriceTicker.js 的定时行情
 // 契约、里程碑与提示见 lesson-09/README.md。
 
-import { useEffect, useRef, useState } from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {
     ACCOUNT_ADDRESS,
     NETWORKS,
@@ -18,16 +18,16 @@ import {
     formatUsd,
     shortAddress,
 } from './data'
-import { PortfolioProvider, usePortfolio } from './model/PortfolioContext'
+import {PortfolioProvider, usePortfolio} from './model/PortfolioContext'
 import {
     selectActiveAssets,
     selectSummary,
     selectVisibleAssets,
 } from './model/portfolioSelectors'
-import { usePriceTicker } from './hooks/usePriceTicker'
+import {usePriceTicker} from './hooks/usePriceTicker'
 
 function NetworkTabs() {
-    const { state, dispatch } = usePortfolio()
+    const {state, dispatch} = usePortfolio()
 
     return (
         <div className="button-row">
@@ -54,7 +54,7 @@ function NetworkTabs() {
     )
 }
 
-function Overview({ summary, live }) {
+function Overview({summary, live}) {
     return (
         <section className="control-card">
             <header className="control-card__head">
@@ -67,7 +67,7 @@ function Overview({ summary, live }) {
                 </span>
             </header>
 
-            <NetworkTabs />
+            <NetworkTabs/>
 
             <p className="counter-value">{formatUsd(summary.total)}</p>
 
@@ -106,16 +106,16 @@ function Overview({ summary, live }) {
 }
 
 function Toolbar({
-    query,
-    onQueryChange,
-    sortKey,
-    onSortKeyChange,
-    watchedOnly,
-    onWatchedOnlyChange,
-    live,
-    onToggleLive,
-    searchRef,
-}) {
+                     query,
+                     onQueryChange,
+                     sortKey,
+                     onSortKeyChange,
+                     watchedOnly,
+                     onWatchedOnlyChange,
+                     live,
+                     onToggleLive,
+                     searchRef,
+                 }) {
     return (
         <section className="control-card">
             <header className="control-card__head">
@@ -183,8 +183,8 @@ function Toolbar({
     )
 }
 
-function AssetList({ assets, total }) {
-    const { dispatch } = usePortfolio()
+function AssetList({assets, total}) {
+    const {dispatch} = usePortfolio()
 
     return (
         <section className="watchlist">
@@ -272,7 +272,7 @@ function AssetList({ assets, total }) {
 }
 
 function AddAssetForm() {
-    const { state, dispatch } = usePortfolio()
+    const {state, dispatch} = usePortfolio()
     const [form, setForm] = useState({
         symbol: '',
         name: '',
@@ -286,11 +286,46 @@ function AddAssetForm() {
         state.activeNetwork
 
     const handleChange = (field) => (event) => {
-        setForm((current) => ({ ...current, [field]: event.target.value }))
+        setForm((current) => ({...current, [field]: event.target.value}))
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
+
+        const symbol = form.symbol.trim().toUpperCase()
+        const name = form.name.trim()
+        const balance = Number(form.balance)
+        const price = Number(form.price)
+
+        if (!symbol || !name) {
+            setError('Symbol 和名称不能为空')
+            return
+        }
+
+        if (form.balance.trim() === '' || Number.isNaN(balance) || balance < 0) {
+            setError('数量必须是大于等于 0 的数字')
+            return
+        }
+
+        if (form.price.trim() === '' || Number.isNaN(price) || price <= 0) {
+            setError('价格必须是大于 0 的数字')
+            return
+        }
+
+        dispatch({
+            type: "ADD_ASSET",
+            asset: {
+                id: `custom-${Date.now()}`,
+                symbol,
+                name,
+                balance,
+                price,
+                change24h: 0,
+                watched: true
+            }
+        })
+
+        setForm({symbol: '', name: '', balance: '', price: ''})
         setError('')
         // TODO(M3): 校验表单；通过后 dispatch ADD_ASSET 并重置表单。
         // 规则见 README 第 5.3 节。
@@ -369,7 +404,7 @@ function AddAssetForm() {
 }
 
 function PortfolioPanel() {
-    const { state, dispatch } = usePortfolio()
+    const {state, dispatch} = usePortfolio()
     const [query, setQuery] = useState('')
     const [sortKey, setSortKey] = useState('value')
     const [watchedOnly, setWatchedOnly] = useState(false)
@@ -388,18 +423,32 @@ function PortfolioPanel() {
         assets,
         enabled: live,
         interval: 4000,
-        onPrices: (updates) => dispatch({ type: 'SET_PRICES', updates }),
+        onPrices: (updates) => dispatch({type: 'SET_PRICES', updates}),
     })
 
     useEffect(() => {
         // TODO(M2): 监听 window keydown；按 "/" 时聚焦 searchRef.current。
         // 在输入框、select、textarea 或可编辑区域里输入时不要抢焦点。
         // 返回 cleanup 移除监听。
+        function handleKeyDown(event) {
+            if (event.key !== '/') return
+            const tag = event.target.tagName
+            const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || event.target.isContentEditable
+
+            if (isTyping) return
+
+            event.preventDefault()
+            searchRef.current?.focus()
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+
     }, [])
 
     return (
         <div className="stack">
-            <Overview summary={summary} live={live} />
+            <Overview summary={summary} live={live}/>
             <Toolbar
                 query={query}
                 onQueryChange={setQuery}
@@ -411,8 +460,8 @@ function PortfolioPanel() {
                 onToggleLive={() => setLive((current) => !current)}
                 searchRef={searchRef}
             />
-            <AssetList assets={visibleAssets} total={summary.total} />
-            <AddAssetForm />
+            <AssetList assets={visibleAssets} total={summary.total}/>
+            <AddAssetForm/>
         </div>
     )
 }
@@ -420,7 +469,7 @@ function PortfolioPanel() {
 export default function Lesson09Exercise() {
     return (
         <PortfolioProvider>
-            <PortfolioPanel />
+            <PortfolioPanel/>
         </PortfolioProvider>
     )
 }

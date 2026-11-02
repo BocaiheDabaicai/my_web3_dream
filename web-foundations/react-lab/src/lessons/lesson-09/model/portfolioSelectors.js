@@ -33,5 +33,20 @@ export function selectSummary(assets) {
 
 // TODO(M2): 按 query / watchedOnly / sortKey 过滤并排序，返回新数组
 export function selectVisibleAssets(assets, filters) {
-    return assets
+    const {query, watchedOnly, sortKey} = filters
+    const keyword = query.trim().toLowerCase()
+
+    const visible = assets.filter((asset) => {
+        const matchesKeyWord = keyword === '' || asset.symbol.toLowerCase().includes(keyword) || asset.name.toLowerCase().includes(keyword)
+        const matchesWatched = !watchedOnly || asset.watched
+
+        return matchesKeyWord && matchesWatched
+    })
+
+
+    return [...visible].sort((a, b) => {
+        if (sortKey === 'value') return b.balance * b.price - a.balance * a.price
+        if (sortKey === 'change') return b.change24h - a.change24h
+        return a.symbol.localeCompare(b.symbol)
+    })
 }
