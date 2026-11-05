@@ -4,9 +4,9 @@
 
 当前模块：**Web Foundations** — React → Next.js → TypeScript → API 调用。
 
-当前课程：[Lesson 11 · Server Components 与 Client Components](web-foundations/next-lab/lessons/lesson-11/README.md)（已完成）
+当前课程：[Lesson 13 · 服务端数据获取与缓存基础](web-foundations/next-lab/lessons/lesson-13/README.md)（进行中）
 
-当前进度（2026-11-02）：React 阶段 Lesson 01–09 全部完成并通过验收。Next.js 阶段：Lesson 10“目录即路由”与 Lesson 11“Server / Client Components”均已完成，浏览器验收与 `next build` 通过。下一课 Lesson 12 · 动态路由、导航、loading 与 error。
+当前进度（2026-11-05）：React 阶段 Lesson 01–09 全部完成。Next.js 阶段 Lesson 10–12 已完成，其中 Lesson 12 覆盖动态路由、loading 与 error，浏览器验收与 `next build` 均通过。Lesson 13 已搭好 Demo 与任务卡，等待练习。
 
 ## 学习方式
 
@@ -41,7 +41,7 @@
 
 - [x] 10 App Router：目录即路由、page 与 layout
 - [x] 11 Server Components 与 Client Components
-- [ ] 12 动态路由、导航、loading 与 error
+- [x] 12 动态路由、导航、loading 与 error
 - [ ] 13 服务端数据获取与缓存基础
 - [ ] 14 Route Handlers：编写 API
 - [ ] 15 综合练习：链上资产面板 v2（mock 数据）
@@ -122,6 +122,7 @@ npm run dev
 - 2026-11-02：创建 `next-lab`（Next.js 16 App Router），开始 Lesson 10“目录即路由”，完成 Demo 与任务卡，等待练习。后续练习按“一个练习只讲一个概念、只保留轻量 Web3 背景”执行。
 - 2026-11-02：Lesson 10 完成（/exercise 三个静态页面、嵌套 layout、Link 跳转、404 验收通过，`next build` 通过）。开始 Lesson 11“Server Components 与 Client Components”，完成 Demo（服务端 Node 版本 + 客户端点赞计数器）与任务卡，等待练习。
 - 2026-11-02：Lesson 11 完成（/exercise/server-client：Server page + `'use client'` 点赞按钮，导航与客户端跳转验收通过，`next build` 通过）。下一课 Lesson 12 · 动态路由、导航、loading 与 error。
+- 2026-11-05：Lesson 12 完成（动态路由 `[height]`、`await params`、`loading.jsx`、`error.jsx` + `retry`，浏览器验收与 `next build` 通过）。开始 Lesson 13“服务端数据获取与缓存基础”，完成 Demo、练习数据与任务卡，等待练习。
 
 ## 官方文档
 

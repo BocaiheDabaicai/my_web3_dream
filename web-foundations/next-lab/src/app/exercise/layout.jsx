@@ -11,6 +11,7 @@ export default function ExerciseLayout({children}) {
                 <Link href="/exercise/blocks">区块</Link>
                 <Link href="/exercise/about">关于</Link>
                 <Link href="/exercise/server-client">Server/Client</Link>
+                <Link href="/exercise/blocks">区块</Link>
             </nav>
 
             {children}

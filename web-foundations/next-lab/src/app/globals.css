@@ -109,6 +109,13 @@ h2 {
   border-radius: 8px;
 }
 
+button.button {
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
 ul {
   padding-left: 20px;
 }

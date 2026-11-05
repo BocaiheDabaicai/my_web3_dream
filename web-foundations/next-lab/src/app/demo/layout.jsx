@@ -11,6 +11,8 @@ export default function DemoLayout({children}) {
         <Link href="/demo/networks">网络</Link>
         <Link href="/demo/about">关于</Link>
         <Link href="/demo/server-client">Server/Client</Link>
+        <Link href="/demo/blocks">区块</Link>
+        <Link href="/demo/server-data">服务端数据</Link>
       </nav>
 
       {children}
